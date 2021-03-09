@@ -42,6 +42,26 @@ async def on_message(message):
         embed.set_footer(text="무엇을 원하는지는 당신이 알아서 맞춰봐")
         await message.channel.send(embed=embed)
 
+# 임베드 이미지와 하이퍼 링크 추가
+
+
+@client.event
+async def on_message(message):
+    if message.content == "안녕":
+        await message.channel.send("안녕!!")
+
+    if message.content == "임베드 이미지":
+        embed = discord.Embed(
+            # footer 에도 적용
+            title='이미지 임베드', description="[내 프사](https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile28.uf.tistory.com%2Fimage%2F99FAE3475C6FDBC734E58D) ", color=0x00ff00)
+        # 이미지 불러오기
+        # embed.set_thumbnail(
+        #     url='https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile28.uf.tistory.com%2Fimage%2F99FAE3475C6FDBC734E58D')
+        #  이미지 중간에 넣기
+        embed.set_image(
+            url='https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile28.uf.tistory.com%2Fimage%2F99FAE3475C6FDBC734E58D')
+        await message.channel.send(embed=embed)
+
 client.run(token)
 
 
