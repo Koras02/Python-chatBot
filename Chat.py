@@ -1,5 +1,6 @@
 import discord
 import asyncio
+import random
 
 client = discord.Client()
 
@@ -61,6 +62,28 @@ async def on_message(message):
         embed.set_image(
             url='https://img1.daumcdn.net/thumb/R720x0.q80/?scode=mtistory2&fname=http%3A%2F%2Fcfile28.uf.tistory.com%2Fimage%2F99FAE3475C6FDBC734E58D')
         await message.channel.send(embed=embed)
+
+    # 랜덤 뽑기
+    if message.content == "뽑기":
+        ran = random.randint(0, 1)
+        if ran == 0:
+            d = "꽝"
+        if ran == 1:
+            d = "당첨"
+        await message.channel.send(d)
+
+    # 점심 메뉴
+    if message.content == "점심메뉴":
+        ran = random.randint(2, 3)
+        if ran == 2:
+            d = "짜장면"
+        if ran == 3:
+            d = "짬뽕"
+        if ran == 2:
+            d = "김밥"
+        if ran == 3:
+            d = "굶어"
+        await message.channel.send(d)
 
 client.run(token)
 
