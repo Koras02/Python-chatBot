@@ -32,6 +32,16 @@ async def on_message(message):
     if message.content == "내일 점심 뭐먹을까??":
         await message.channel.send("소금듬뿍 들어간 돼지고기 김치주먹밥을 추천할께 친구야!!")
 
+#  임베드 이미지 추가
+    if message.content == "임베드 한잔 추가":
+        embed = discord.Embed(
+            title="알겠습니다", description="다른 거 필요하시면 불러주세용", color=0x00ff00)
+        embed.add_field(name="지금 무엇을 상상하신건가 자네??", value="하지마??", inline=True)
+        embed.add_field(name="지금 무엇을 상상하신건가 자네?? (2스택)",
+                        value="하지마?? (2스택)", inline=True)
+        embed.set_footer(text="무엇을 원하는지는 당신이 알아서 맞춰봐")
+        await message.channel.send(embed=embed)
+
 client.run(token)
 
 
